@@ -1,0 +1,49 @@
+You are given two strings word1 and word2. Merge the strings by adding letters in alternating order, starting with word1. If a string is longer than the other, append the additional letters onto the end of the merged string.
+
+Return the merged string.
+
+ 
+
+Example 1:
+
+Input: word1 = "abc", word2 = "pqr"
+Output: "apbqcr"
+Explanation: The merged string will be merged as so:
+word1:  a   b   c
+word2:    p   q   r
+merged: a p b q c r
+---------------------------------------------------------------------------------------------------------
+Approch:- 
+1.Initialize two indexes i = 0, j = 0 for the two strings.
+
+2.Loop while either string has characters left (i < word1.size() || j < word2.size()).
+
+3Inside the loop:
+
+If i < word1.size(), add word1[i] to the result and increment i.
+
+If j < word2.size(), add word2[j] to the result and increment j.
+
+4.After the loop, the merged string will have alternating characters and the remaining characters from the longer string.
+
+ Time complexity: O(n1 + n2)
+ Space complexity: O(n1 + n2)
+
+------------------------------------------------------CODE----------------------------------------------------
+class Solution {
+public:
+    string mergeAlternately(string word1, string word2) {
+        string ans = "";
+        int i = 0, j = 0;
+        while (i != word1.size() || j != word2.size()) {
+
+            if (i < word1.size())
+                ans += word1[i++];
+            if (j < word2.size())
+                ans += word2[j++];
+        }
+        return ans;
+    }
+};
+
+------------------------------------------------------------------------------------------------------------------------------------
